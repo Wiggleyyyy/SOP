@@ -1,0 +1,50 @@
+/*CUSTOM FONT*/
+@font-face {
+    font-family: 'JettBrains-regular';
+    src: url(../assets/fonts/JetBrainsMono-Regular.woff2);
+}
+
+.navbar {
+    background-color: #233441;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 12.5vh;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 5px 0 15px #051219;
+    z-index: 1000;
+}
+
+.navbar ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: 3vh;
+}
+
+.navbar ul li {
+    list-style: none;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+}
+
+.navbar ul li a h1 {
+    transition: 0.5s;
+    color: #c4c8c7;
+    font-family: JettBrains-regular;
+    padding: 0.5vh;
+    box-sizing: border-box;
+    border-radius: 0.75vh;
+    background-color: #141c22;
+}
+
+.navbar ul li a h1:hover {
+    transition: 0.5s;
+    background-color: #919ea1;
+    border-radius: 0.75vh;
+    color: #465767;
+}
