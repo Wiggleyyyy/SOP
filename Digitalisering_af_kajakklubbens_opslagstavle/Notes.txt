@@ -1,0 +1,26 @@
+Opgave: 
+
+Hvad skal der laves? 
+Der skal laves en database + diagram med tabeler til følgende:
+- kategorier (for arrangementer)
+- Arrangementer
+- Billeder
+- Nyheder
+- Medlemmer
+
+- - -- - -- -- 
+
+A: DONE
+Jeg har lavet et ER diagram (ligger i samme dir som png)
+
+B: DONE
+Jeg har lavet nogle TSQL scripts til at oprette tabellerne
+
+C: DONE
+Jeg har lavet et script der indsætter noget test data
+
+1) - DONE
+
+2) - DONE
+
+3) - DONE
