@@ -1,0 +1,110 @@
+﻿<Window x:Class="ERP_system.Popups.Debtors.DebtorView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ERP_system.Popups.Debtors"
+        mc:Ignorable="d"
+        Title="ERP system | Debtor view" Height="700" Width="1300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" x:Name="title" Text="View" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20"/>
+
+        <StackPanel Grid.Row="1">
+            <Label x:Name="info_title" Content="Info" HorizontalAlignment="Center"/>
+            <ListView x:Name="info_listview" HorizontalAlignment="Center">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Debtor ID" Width="75" DisplayMemberBinding="{Binding id}"/>
+                        <GridViewColumn Header="Name" Width="100" DisplayMemberBinding="{Binding name}"/>
+                        <GridViewColumn Header="Company ID" Width="75" DisplayMemberBinding="{Binding company_id}"/>
+                        <GridViewColumn Header="CVR" Width="100" DisplayMemberBinding="{Binding cvr}"/>
+                        <GridViewColumn Header="VAT" Width="100" DisplayMemberBinding="{Binding vat}"/>
+                        <GridViewColumn Header="phone" Width="100" DisplayMemberBinding="{Binding phone}"/>
+                        <GridViewColumn Header="email" Width="100" DisplayMemberBinding="{Binding email}"/>
+                        <GridViewColumn Header="Country ID" Width="75" DisplayMemberBinding="{Binding country_id}"/>
+                        <GridViewColumn Header="Contact person" Width="100" DisplayMemberBinding="{Binding contact_person}"/>
+                        <GridViewColumn Header="Zipcode" Width="75" DisplayMemberBinding="{Binding zipcode}"/>
+                        <GridViewColumn Header="City" Width="100" DisplayMemberBinding="{Binding city}"/>
+                        <GridViewColumn Header="Date created" Width="100" DisplayMemberBinding="{Binding date_created}"/>
+                        <GridViewColumn Header="Note" Width="150" DisplayMemberBinding="{Binding debtor_note}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2">
+            <Label x:Name="delivery_title" Content="Delivery info" HorizontalAlignment="Center"/>
+            <ListView x:Name="delivery_listview" HorizontalAlignment="Center">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Delivery phone" Width="100" DisplayMemberBinding="{Binding delivery_phone}"/>
+                        <GridViewColumn Header="Delivery email" Width="100" DisplayMemberBinding="{Binding delivery_email}"/>
+                        <GridViewColumn Header="Delivery country ID" Width="125" DisplayMemberBinding="{Binding delivery_country_id}"/>
+                        <GridViewColumn Header="Delivery zipcode" Width="100" DisplayMemberBinding="{Binding delivery_zipcode}"/>
+                        <GridViewColumn Header="Delivery city" Width="100" DisplayMemberBinding="{Binding delivery_city}"/>
+                        <GridViewColumn Header="Delivery address" Width="100" DisplayMemberBinding="{Binding delivery_address}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </StackPanel>
+
+        <StackPanel Grid.Row="3">
+            <Label x:Name="billing_title" Content="billing info" HorizontalAlignment="Center"/>
+            <ListView x:Name="billing_listview" HorizontalAlignment="Center">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Billing address" Width="100" DisplayMemberBinding="{Binding billing_address}"/>
+                        <GridViewColumn Header="Billing contact" Width="100" DisplayMemberBinding="{Binding billing_contact}"/>
+                        <GridViewColumn Header="Billing term ID" Width="100" DisplayMemberBinding="{Binding billing_term_id}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </StackPanel>
+
+        <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,50,0,0">
+            <StackPanel HorizontalAlignment="Center" Margin="0,0,5,0">
+                <Label Content="Country" HorizontalAlignment="Center"/>
+                <ListView x:Name="country_listview" HorizontalAlignment="Center">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="ID" Width="50" DisplayMemberBinding="{Binding id}"/>
+                            <GridViewColumn Header="Country" Width="100" DisplayMemberBinding="{Binding country}"/>
+                            <GridViewColumn Header="ISO code" Width="75" DisplayMemberBinding="{Binding iso_code}"/>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Center" Margin="5,0,5,0">
+                <Label Content="Delivery country" HorizontalAlignment="Center"/>
+                <ListView x:Name="deliveryCountry_listview" HorizontalAlignment="Center">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="ID" Width="50" DisplayMemberBinding="{Binding id}"/>
+                            <GridViewColumn Header="Country" Width="100" DisplayMemberBinding="{Binding country}"/>
+                            <GridViewColumn Header="ISO code" Width="75" DisplayMemberBinding="{Binding iso_code}"/>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Center" Margin="5,0,0,0">
+                <Label Content="Billing term" HorizontalAlignment="Center"/>
+                <ListView x:Name="billingTerm_listview" HorizontalAlignment="Center">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="ID" Width="50" DisplayMemberBinding="{Binding id}"/>
+                            <GridViewColumn Header="Term" Width="100" DisplayMemberBinding="{Binding name}"/>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

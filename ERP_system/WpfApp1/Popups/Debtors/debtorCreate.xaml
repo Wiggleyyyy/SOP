@@ -1,0 +1,123 @@
+﻿<Window x:Class="ERP_system.Popups.Debtors.debtorCreate"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ERP_system.Popups.Debtors"
+        mc:Ignorable="d"
+        Title="ERP system | Create debtor" Height="700" Width="1300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Text="Create" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+
+        <StackPanel Grid.Row="1" HorizontalAlignment="Center" Orientation="Vertical">
+            <Label Content="Info" HorizontalAlignment="Center"/>
+            <StackPanel Orientation="Horizontal" Margin="0,0,5,0">
+                <StackPanel Orientation="Vertical">
+                    <Label Content="Name"/>
+                    <TextBox x:Name="name_textBox" Height="20" Width="100"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" Margin="5,0,5,0">
+                    <Label Content="Company"/>
+                    <ComboBox Name="company_combobox" Height="20" Width="150"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" Margin="5,0,5,0">
+                    <Label Content="CVR"/>
+                    <TextBox x:Name="cvr_textbox" Height="20" Width="100"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" Margin="5,0,5,0">
+                    <Label Content="VAT"/>
+                    <TextBox x:Name="vat_textbox" Height="20" Width="100"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" Margin="5,0,5,0">
+                    <Label Content="phone"/>
+                    <TextBox x:Name="phone_textbox" Height="20" Width="100"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" Margin="5,0,5,0">
+                    <Label Content="email"/>
+                    <TextBox x:Name="email_textbox" Height="20" Width="100"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" Margin="5,0,5,0">
+                    <Label Content="Country ID"/>
+                    <ComboBox x:Name="country_combobox" Height="20" Width="125"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" Margin="5,0,5,0">
+                    <Label Content="Contact person"/>
+                    <TextBox x:Name="contact_textbox" Height="20" Width="100"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" Margin="5,0,5,0">
+                    <Label Content="Zipcode"/>
+                    <TextBox x:Name="zipcode_textbox" Height="20" Width="100"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" Margin="5,0,5,0">
+                    <Label Content="City"/>
+                    <TextBox x:Name="city_textbox" Height="20" Width="100"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" Margin="5,0,0,0">
+                    <Label Content="Note"/>
+                    <TextBox x:Name="note_textbox" Height="20" Width="100"/>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2">
+            <Label Content="Delivery info" HorizontalAlignment="Center"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <StackPanel HorizontalAlignment="Center" Margin="0,0,5,0">
+                    <Label Content="Delivery phone"/>
+                    <TextBox x:Name="deliveryPhone_textbox" Height="20" Width="100"/>
+                </StackPanel>
+                <StackPanel HorizontalAlignment="Center" Margin="5,0,5,0">
+                    <Label Content="Delivery email"/>
+                    <TextBox x:Name="deliveryEmail_textbox" Height="20" Width="100"/>
+                </StackPanel>
+                <StackPanel HorizontalAlignment="Center" Margin="5,0,5,0">
+                    <Label Content="Delivery country"/>
+                    <ComboBox x:Name="deliveryCountry_combobox" Height="20" Width="125"/>
+                </StackPanel>
+                <StackPanel HorizontalAlignment="Center" Margin="5,0,5,0">
+                    <Label Content="Delivery zipcode"/>
+                    <TextBox x:Name="deliveryZipcode_textbox" Height="20" Width="100"/>
+                </StackPanel>
+                <StackPanel HorizontalAlignment="Center" Margin="5,0,5,0">
+                    <Label Content="Delivery city"/>
+                    <TextBox x:Name="deliveryCity_textbox" Height="20" Width="100"/>
+                </StackPanel>
+                <StackPanel HorizontalAlignment="Center" Margin="5,0,0,0">
+                    <Label Content="Delivery address"/>
+                    <TextBox x:Name="deliveryAddress_textbox" Height="20" Width="100"/>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel Grid.Row="3">
+            <Label Content="billing info" HorizontalAlignment="Center"/>
+            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                <StackPanel Orientation="Vertical" Margin="0,0,5,0">
+                    <Label Content="Billing address"/>
+                    <TextBox x:Name="billingAddress_textbox"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" Margin="5,0,5,0">
+                    <Label Content="Billing contact"/>
+                    <TextBox x:Name="billingContact_textbox"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" Margin="5,0,0,0">
+                    <Label Content="Billing term"/>
+                    <ComboBox x:Name="billingTerm_combobox" Height="20" Width="100"/>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel Grid.Row="4" Margin="0,50,0,0" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Content="Create" HorizontalAlignment="Center" Height="50" Width="100" FontSize="15" Margin="0,0,5,0"/>
+            <Button Content="Reset" HorizontalAlignment="Center" Height="50" Width="100" FontSize="15" Margin="5,0,0,0"/>
+        </StackPanel>
+    </Grid>
+</Window>

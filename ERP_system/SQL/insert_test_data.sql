@@ -1,0 +1,62 @@
+USE ERP_system;
+GO
+
+--INSERT INTO companies (
+--	company_name,
+--	cvr_number,
+--	vat_number,
+--	legal_form_id,
+--	owner_name,
+--	contact_person,
+--	address_1,
+--	country_id,
+--	zipcode,
+--	city,
+--	status_id,
+--	billing_address,
+--	billing_term_id,
+--	billing_contact
+--)
+--VALUES
+--('IkkeEtFirma A/S', '123456789', '123456789', '1', 'David Hougesen', 'David Hougesen', 'IkkeEnAdresse123', '60', '5200', 'Odense', '4', 'IkkeEnAdresse123', '3', 'David Hougesen')
+--GO
+
+--INSERT INTO users (
+--	first_name,
+--	last_name,
+--	user_username,
+--	user_password,
+--	company_id,
+--	role_id,
+--	country_id,
+--	status_id
+--)
+--VALUES
+--('David', 'Hougesen', 'david!Test', 'Test!', '1', '4', '60', '1')
+
+--INSERT INTO debtors (
+--    debtor_name,
+--    company_id,
+--    cvr_number,
+--    vat_number,
+--    phone,
+--    email,
+--    country_id,
+--    contact_person,
+--    zipcode,
+--    city,
+--    delivery_phone,
+--    delivery_email,
+--    delivery_zipcode,
+--    delivery_city,
+--    delivery_country_id,
+--    delivery_address,
+--    billing_address,
+--    billing_contact,
+--    billing_term,
+--    date_created,
+--    debtor_note
+--) VALUES
+--('Debtor One', 1, '12345678', 'DK12345678', '1234567890', 'debtor.one@example.com', 1, 'John Doe', 1000, 'Copenhagen', '2345678901', 'delivery.one@example.com', 2000, 'Aarhus', 1, 'Delivery Street 1, Aarhus', 'Billing Street 1, Copenhagen', 'Jane Doe', 1, GETDATE(), 'Note for Debtor One'),
+--('Debtor Two', 1, '87654321', 'DK87654321', '0987654321', 'debtor.two@example.com', 1, 'Alice Johnson', 3000, 'Odense', '5678901234', 'delivery.two@example.com', 4000, 'Roskilde', 1, 'Delivery Street 2, Roskilde', 'Billing Street 2, Odense', 'Bob Johnson', 1, GETDATE(), 'Note for Debtor Two'),
+--('Debtor Three', 1, '23456789', 'DK23456789', '6789012345', 'debtor.three@example.com', 1, 'Eve Smith', 5000, 'Esbjerg', '3456789012', 'delivery.three@example.com', 6000, 'Herning', 1, 'Delivery Street 3, Herning', 'Billing Street 3, Esbjerg', 'Sam Smith', 1, GETDATE(), 'Note for Debtor Three');

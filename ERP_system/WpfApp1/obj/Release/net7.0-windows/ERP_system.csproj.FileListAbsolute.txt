@@ -1,0 +1,4 @@
+C:\Users\houge\Desktop\Skole\SOP\ERP_system\WpfApp1\obj\Release\net7.0-windows\MainWindow.g.cs
+C:\Users\houge\Desktop\Skole\SOP\ERP_system\WpfApp1\obj\Release\net7.0-windows\App.g.cs
+C:\Users\houge\Desktop\Skole\SOP\ERP_system\WpfApp1\obj\Release\net7.0-windows\ERP_system_MarkupCompile.cache
+C:\Users\houge\Desktop\Skole\SOP\ERP_system\WpfApp1\obj\Release\net7.0-windows\ERP_system_MarkupCompile.lref
