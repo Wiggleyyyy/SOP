@@ -1,0 +1,23 @@
+kaostek opgave: GODKENDT + AFLEVERET
+
+del 1: GODKENDT
+der skal laves en database med flere tabeller 
+en command som kan query alle kunder og antal ordre for den kunde
+
+del 2: GODKENDT
+der skal laves en side med html/css + js
+hvor man skal kunne se alle produkter sorteret ud fra billigste
+
+
+- - -- -- - -- - - 
+
+noter - del 1: 
+Jeg har oprettet en database: "KaosTek"
+Jeg har lavet et diagram over databasen, gemt som JPG i samme dir
+Jeg har oprettet tabelerne til databasen.
+Jeg har indsat data fra opgaven ind i min database
+Jeg har lavet udtræk til at få kunde og antal ordre for den kunde
+
+noter - del 2:
+Jeg har lavet et script til at oprette en full permission bruger i databasen (navn: "ConnectionUser", pass: "AppConnection!")
+Jeg har lavet en GUI med WinForms C# og en read API til databasen
