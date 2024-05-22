@@ -1,0 +1,10 @@
+{
+    "manifest_version": 3,
+    "name": "Progress bar",
+    "version": "1.0",
+    "description": "This is a progress bar with a start time and end time.",
+    "permissions": ["storage", "activeTab"],
+    "action": {
+      "default_popup": "popup.html"
+    }
+}

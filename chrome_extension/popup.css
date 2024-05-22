@@ -1,0 +1,50 @@
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  margin: 0;
+  width: 750px;
+  overflow: hidden;
+  flex-direction: column;
+}
+
+.progress-container {
+  width: 100%;
+  background-color: #f85d58;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 50px;
+  background-color: #58ff7c;
+  margin-top: -15px;
+  width: 0%;
+  text-align: center;
+  line-height: 30px;
+  color: #000;
+}
+
+.settings {
+    transition: 1s;
+    margin-top: 10px;
+    box-sizing: border-box;
+    width: auto;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    font-size: 20px;
+    text-decoration: none;
+    background-color: #a0a0a0;
+    justify-content: center;
+    margin-bottom: 10px;
+    border-radius: 25px;
+    color: #000;
+}
+
+.settings:hover{
+    transition: 1s;
+    background-color: #000;
+    color: #a0a0a0;
+}
