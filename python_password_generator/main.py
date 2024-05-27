@@ -1,7 +1,6 @@
 import json
 
 from classes import *
-import data_models
 from data_models import *
 
 site = input("Enter the site of the login: ")
