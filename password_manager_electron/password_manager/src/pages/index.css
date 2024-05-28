@@ -1,0 +1,187 @@
+
+@font-face {
+  font-family: 'JettBrains-regular';
+  src: url(../assets/fonts/JetBrainsMono-Regular.woff2);
+}
+
+body {
+  background-color: #2D222F
+}
+
+h1 {
+  font-family: JettBrains-regular;
+  font-style: bold;
+  font-size: 6vh;
+  color: #FadCd5;
+}
+
+input {
+  font-size: 3vh;
+  font-family: JettBrains-regular;
+  padding: 10px 10px 10px 5px;
+  display: block;
+  width: auto; /*adjust*/
+  border: none;
+  border-bottom: 1px solid #FadCd5;
+  background: none;
+  color: #FadCd5;
+}
+
+input:focus {
+  outline: none;
+}
+
+label {
+  color: #FadCd5;
+  font-size: 3vh;
+  font-family: JettBrains-regular;
+  position: absolute;
+  pointer-events: none;
+  left: 5px;
+  top: 10px;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+}
+
+input:focus ~ label, input:valid ~ label {
+  top: -45px;
+  font-size: 2vh;
+  color: #FadCd5;
+}
+
+@media (min-width: 1000px) {
+  input:focus ~ label, input:valid ~ label {
+    top: -20px
+  }
+}
+
+
+input:focus ~ .bar:before, input:focus ~ .bar:after {
+  width:50%;
+}
+
+input:focus ~ .highlight {
+  -webkit-animation:inputHighlighter 0.3s ease;
+  -moz-animation:inputHighlighter 0.3s ease;
+  animation:inputHighlighter 0.3s ease;
+}
+
+button {
+  font-size: 2.5vh;
+  font-family: JettBrains-regular;
+  width: 30vh;
+  height: 6vh;
+  border-radius: 1vh;
+  padding: 10px 25px;
+  background: #4B2138;
+  cursor: pointer;
+  transition: all 10s;
+  position: relative;
+  display: inline-block;
+  color: #FadCd5;
+  outline: none;
+  border: none;
+
+}
+
+button:hover {
+  border: 1px solid #FadCd5;
+  transition: all 10s;
+}
+
+a {
+  font-size: 2.5vh;
+  font-family: JettBrains-regular;
+  color: #FadCd5;
+}
+
+.header {
+  background-color: #6D3C52;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  border-radius: 2vh;
+}
+
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 5vh;
+  background-color: #6D3C52;
+  padding: 2vh;
+  box-sizing: border-box;
+  border-radius: 2vh;
+}
+
+.card .input-group, button, a {
+ margin: 1.5vh;
+}
+
+.input-group {
+  position: relative;
+  margin-bottom: 45px;
+}
+
+.bar {
+  position: relative;
+  display: block;
+  width: auto;
+}
+
+.bar::before, .bar::after {
+  content: '';
+  height: 2px;
+  width: 0;
+  bottom: 1px;
+  position: absolute;
+  background: #FadCd5;
+  transition: 0.2s ease all; 
+  -moz-transition:0.2s ease all; 
+  -webkit-transition:0.2s ease all;
+}
+
+.bar::before {
+  left: 50%;
+}
+
+.bar::after {
+  right: 50%;
+}
+
+.highlight {
+  position: absolute;
+  height: 60%;
+  width: 100px;
+  top: 25%;
+  left: 0;
+  pointer-events: none;
+}
+
+@-webkit-keyframes inputHighlighter {
+	from { 
+    background:#5264AE; 
+  }
+  to 	{ 
+    width:0; background:transparent; 
+  }
+}
+@-moz-keyframes inputHighlighter {
+	from { 
+    background:#5264AE; 
+  }
+  to 	{
+    width:0; background:transparent; 
+  }
+}
+@keyframes inputHighlighter {
+	from { 
+    background:#5264AE; 
+  }
+  to 	{ 
+    width:0; background:transparent; 
+  }
+}

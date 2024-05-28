@@ -1,0 +1,17 @@
+USE password_manager;
+GO
+
+CREATE TABLE users(
+	user_id INT PRIMARY KEY IDENTITY(1,1),
+	email VARCHAR(255) NOT NULL,
+	password VARCHAR(255) NOT NULL, -- NOTE : HASH PASSWORD
+)
+
+CREATE TABLE logins(
+	login_id INT PRIMARY KEY IDENTITY(1,1),
+	site VARCHAR(255) NOT NULL,
+	password VARCHAR(255) NOT NULL, -- NOTE : HASH PASSWORD
+	user_id INT NOT NULL,
+
+	FOREIGN KEY (user_id) REFERENCES users(user_id),
+)
