@@ -2,8 +2,9 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>Password manager | Sign-uo</title>
+    <title>Password manager | Sign-up</title>
     <link rel="stylesheet" href="index.css"/>
+    <script type="module" src="../assets/JavaScript/Login.js"></script>
   </head>
   <body>
     <div class="header">
@@ -12,25 +13,29 @@
 
     <div class="card">
         <div class="input-group">
-            <input type="text" required>
+            <input type="text" id="username" required>
             <span class="highlight"></span>
             <span class="bar"></span>
             <label>Email...</label>
         </div>
         <div class="input-group">
-            <input type="password" required>
+            <input type="password" id="password" required>
             <span class="highlight"></span>
             <span class="bar"></span>
             <label>Password...</label>
         </div>
         <div class="input-group">
-            <input type="password" required>
+            <input type="password" id="repeated_password" required>
             <span class="highlight"></span>
             <span class="bar"></span>
             <label>Repeat password...</label>
-          </div>
-      <button>Create account</button>
+        </div>
+        <p id="error-message"></p>
+      <button onclick="Signup()">Create account</button>
       <a href="./index.html">Already have an account?</a>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/solid-toast/dist/solid-toast.min.js"></script>
+    <script type="module" src="../assets/JavaScript/Login.js"></script>
   </body>
 </html>

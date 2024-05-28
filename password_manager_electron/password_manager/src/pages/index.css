@@ -5,7 +5,9 @@
 }
 
 body {
-  background-color: #2D222F
+  background-image: url(../assets/images/mobile.jpg);
+  justify-content: center;
+  align-items: center;
 }
 
 h1 {
@@ -50,13 +52,6 @@ input:focus ~ label, input:valid ~ label {
   color: #FadCd5;
 }
 
-@media (min-width: 1000px) {
-  input:focus ~ label, input:valid ~ label {
-    top: -20px
-  }
-}
-
-
 input:focus ~ .bar:before, input:focus ~ .bar:after {
   width:50%;
 }
@@ -76,18 +71,16 @@ button {
   padding: 10px 25px;
   background: #4B2138;
   cursor: pointer;
-  transition: all 10s;
   position: relative;
   display: inline-block;
   color: #FadCd5;
-  outline: none;
-  border: none;
-
+  border: 2px solid #FadCd5;
+  transition: 0.3s ease;
 }
 
 button:hover {
-  border: 1px solid #FadCd5;
-  transition: all 10s;
+  transition: 0.3s ease;
+  background-color: #2D222F;
 }
 
 a {
@@ -97,12 +90,14 @@ a {
 }
 
 .header {
-  background-color: #6D3C52;
+  background: rgba(109, 60, 82, 0.75);
+  margin-top: 2vh;
   display: flex;
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
   border-radius: 2vh;
+  width: 100%;
 }
 
 .card {
@@ -111,8 +106,7 @@ a {
   align-items: center;
   flex-direction: column;
   margin-top: 5vh;
-  background-color: #6D3C52;
-  padding: 2vh;
+  background: rgba(109, 60, 82, 0.75);  padding: 2vh;
   box-sizing: border-box;
   border-radius: 2vh;
 }
@@ -184,4 +178,22 @@ a {
   to 	{ 
     width:0; background:transparent; 
   }
+}
+
+@media (min-width: 1000px) {
+  input:focus ~ label, input:valid ~ label {
+    top: -20px
+  }
+
+  .header, .card {
+    width: 80%;
+  }
+
+  body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url(../assets/images/cherry-blossoms-butterflies-wallpaper-preview.jpg)
+  };
 }

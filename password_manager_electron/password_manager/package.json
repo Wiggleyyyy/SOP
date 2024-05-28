@@ -5,11 +5,15 @@
   "description": "My Electron application description",
   "main": "src/index.js",
   "scripts": {
+    "preinstall": "npx npm-force-resolutions",
     "start": "electron-forge start",
     "package": "electron-forge package",
     "make": "electron-forge make",
     "publish": "electron-forge publish",
     "lint": "echo \"No linting configured\""
+  },
+  "resolutions": {
+    "minimist": "~1.2.5"
   },
   "devDependencies": {
     "@electron-forge/cli": "^7.4.0",
@@ -29,6 +33,10 @@
   },
   "license": "MIT",
   "dependencies": {
-    "electron-squirrel-startup": "^1.0.1"
+    "electron-squirrel-startup": "^1.0.1",
+    "solid-app-router": "^0.4.2",
+    "solid-js": "^1.8.17",
+    "solid-toast": "^0.5.0",
+    "toaster-js": "^2.2.3"
   }
 }
