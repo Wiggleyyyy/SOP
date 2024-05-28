@@ -105,7 +105,6 @@ if find_and_click_image(image_path):
                             # Feedback
                             print("Image found and clicked")
 
-                            time.sleep(30)
                         else:
                             # Feedback
                             print("Image not found")
