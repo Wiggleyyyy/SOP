@@ -1,0 +1,32 @@
+@font-face {
+    font-family: 'JettBrains-regular';
+    src: url(../assets/fonts/JetBrainsMono-Regular.woff2);
+}
+
+body {
+    background: #1b0c1a;
+}
+
+h1 {
+    color: #fadcd5;
+    font-family: JettBrains-regular;
+    font-size: 4vh;
+}
+
+
+
+.header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    border-radius: 2vh;
+    background: #4b2138;
+    padding: 1vh;
+}
+
+.card {
+    background: #4b2138;
+    border-radius: 2vh;
+}
