@@ -10,6 +10,42 @@ namespace API
         private readonly string connectionString = "Data Source=localhost;Initial Catalog=password_manager;User ID=ConnectionUser;Password=AppConnection!;Integrated Security=True";
         private SqlConnection cnn;
 
+
+        public bool Login(User user)
+        {
+            try
+            {
+                // Open connections
+                cnn = new SqlConnection(connectionString);
+                cnn.Open();
+
+                // Check if user exists
+                string query = "SELECT * FROM users WHERE email = @username AND password = @password";
+                SqlCommand command = new SqlCommand(query, cnn);
+                command.Parameters.AddWithValue("@username", user.username);
+                command.Parameters.AddWithValue("@password", user.hashed_password);
+                SqlDataReader reader = command.ExecuteReader();
+                bool hasRows = reader.HasRows;
+
+
+                // Close connection
+                cnn.Close();
+
+                // Return true if user exists
+                return hasRows;
+            }
+            catch (Exception ex)
+            {
+                // Close connection if not closed
+                if (cnn.State != System.Data.ConnectionState.Closed)
+                {
+                    cnn.Close();
+                }
+
+                return false;
+            }
+        }
+
         public bool Signup(User user)
         {
             try

@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <title>Password manager | Sign-up</title>
     <link rel="stylesheet" href="index.css"/>
-    <script type="module" src="../assets/JavaScript/Login.js"></script>
+    <script type="module" src="../assets/JavaScript/login.js"></script>
+    <script src="../assets/JavaScript/login_reseter.js"></script>
   </head>
   <body>
     <div class="header">
@@ -14,28 +15,27 @@
     <div class="card">
         <div class="input-group">
             <input type="text" id="username" required>
-            <span class="highlight"></span>
-            <span class="bar"></span>
-            <label>Email...</label>
+            <span class="highlight" id="highlight"></span>
+            <span class="bar" id="bar"></span>
+            <label id="label">Email...</label>
         </div>
         <div class="input-group">
             <input type="password" id="password" required>
-            <span class="highlight"></span>
-            <span class="bar"></span>
-            <label>Password...</label>
+            <span class="highlight" id="highlight"></span>
+            <span class="bar" id="bar"></span>
+            <label id="label">Password...</label>
         </div>
         <div class="input-group">
             <input type="password" id="repeated_password" required>
-            <span class="highlight"></span>
-            <span class="bar"></span>
-            <label>Repeat password...</label>
+            <span class="highlight" id="highlight"></span>
+            <span class="bar" id="bar"></span>
+            <label id="label">Repeat password...</label>
         </div>
-        <p id="error-message"></p>
+        <p id="error_message"></p>
       <button onclick="Signup()">Create account</button>
       <a href="./index.html">Already have an account?</a>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/solid-toast/dist/solid-toast.min.js"></script>
-    <script type="module" src="../assets/JavaScript/Login.js"></script>
+    <script src="../assets/JavaScript/login.js"></script>
   </body>
 </html>

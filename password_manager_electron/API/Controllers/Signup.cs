@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
@@ -10,11 +11,17 @@ namespace API.Controllers
     [ApiController]
     public class Signup : ControllerBase
     {
-        database DB = new database();
+        private database DB = new database();
 
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody] User user)
+        public async Task<IActionResult> Post([FromQuery] string username, [FromQuery] string password)
         {
+            User user = new User()
+            {
+                username = username,
+                password = password,
+            };
+
             if (String.IsNullOrEmpty(user.username) || String.IsNullOrEmpty(user.password))
             {
                 return BadRequest("Invalid username and/or password");
@@ -25,7 +32,7 @@ namespace API.Controllers
             bool isSuccess = DB.Signup(user);
             if (isSuccess)
             {
-                return Ok(user);
+                return StatusCode(200, "Account created");
             }
             else
             {

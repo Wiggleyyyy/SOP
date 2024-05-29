@@ -89,6 +89,19 @@ a {
   color: #FadCd5;
 }
 
+.error {
+  color: red;
+  border-color: red;
+}
+
+#error_message {
+  color: red;
+  margin-top: 10px;
+  font-size: 2.5vh;
+  font-family: JettBrains-regular;
+  font-weight: bold;
+}
+
 .header {
   background: rgba(109, 60, 82, 0.75);
   margin-top: 2vh;
