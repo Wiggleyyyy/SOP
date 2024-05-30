@@ -5,11 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Password manager | Home</title>
     <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!--<script src="../assets/JavaScript/login_handler.js"></script>-->
 </head>
 <body>
     <div class="header">
         <h1>Password manager</h1>
+        <button class="logout" onclick="Logout()">
+            <div class="icon">
+                <i class="fa-solid fa-user"><span id="user"></span></i>
+            </div>
+            <span>Log-out</span>
+        </button>
     </div>
 
     <div class="card">
@@ -35,7 +42,13 @@
                     <label id="label">Password...</label>
                 </div>
             </div>
-            <button>+</button>
+            <button class="add_button" onclick="">+</button>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="passwords">
+
         </div>
     </div>
 </body>

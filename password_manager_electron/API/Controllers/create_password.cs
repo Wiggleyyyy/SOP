@@ -6,35 +6,36 @@ using System.Text;
 namespace API.Controllers
 {
     [ApiController]
-    [Route("/[controller]")]
-    public class Login : ControllerBase
+    [Route("/password/[controller]")]
+    public class create_password : ControllerBase
     {
         private database DB = new database();
 
         [HttpPost]
-        public IActionResult Post([FromQuery] string username, [FromQuery] string password)
+        public IActionResult Post([FromQuery] string site, [FromQuery] string username, [FromQuery] string password, [FromQuery] string currentUsername)
         {
-            if (String.IsNullOrEmpty(username) || String.IsNullOrEmpty(password))
+            if (String.IsNullOrEmpty(site) || String.IsNullOrEmpty(username) || String.IsNullOrEmpty(password) || String.IsNullOrEmpty(currentUsername))
             {
-                return BadRequest("Invalid username and/or password");
+                return BadRequest("Invalid input(s)");
             }
 
-            User user = new User()
+            _Login login = new _Login()
             {
+                site = site,
                 username = username,
                 password = password,
                 hashed_password = HashPassword(password),
             };
 
-            bool loginSuccess = DB.Login(user);
+            bool insertSuccessful = DB.CreateLogin(login, currentUsername);
 
-            if (loginSuccess)
+            if (insertSuccessful)
             {
-                return StatusCode(200, "Logged in");
+                return StatusCode(200, "Login created");
             }
             else
             {
-                return Unauthorized("Invalid username or password");
+                return StatusCode(500, "An error occured while creating user");
             }
         }
 

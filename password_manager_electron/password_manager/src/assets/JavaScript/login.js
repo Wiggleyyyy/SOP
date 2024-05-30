@@ -26,11 +26,10 @@ async function Login() {
             body: JSON.stringify(user)
         });
 
-        const responseBody = await response.text();
-
         if (response.status === 200) {
             console.log("Logged in");
             localStorage.setItem("isLoggedIn", "true");
+            localStorage.setItem("currentUser", user.username);
             window.location.assign("./home.html")
         } else if (response.status === 404) {
             throw new Error("API not found.");
@@ -82,6 +81,7 @@ async function Signup() {
             if (response.status === 200) {
                 console.log("Account created, logging in");
                 localStorage.setItem("isLoggedIn", "true");
+                localStorage.setItem("currentUser", user.username);
                 window.location.assign("./home.html");
             } else if (response.status == 404) {
                 throw new Error("API not found.");

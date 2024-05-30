@@ -5,6 +5,9 @@
 
 body {
     background: #1b0c1a;
+    flex-direction: column;;
+    justify-content: center;
+    align-items: center;
 }
 
 h1 {
@@ -13,7 +16,120 @@ h1 {
     font-size: 4vh;
 }
 
+h2 {
+    color: #fadcd5;
+    font-family: JettBrains-regular;
+    padding: 1vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+input {
+    font-size: 3vh;
+    font-family: JettBrains-regular;
+    padding: 10px 10px 10px 5px;
+    display: block;
+    width: auto; /*adjust*/
+    border: none;
+    border-bottom: 1px solid #FadCd5;
+    background: none;
+    color: #FadCd5;
+}
+
+input:focus {
+    outline: none;
+}
+
+button {
+    font-size: 2.5vh;
+    font-family: JettBrains-regular;
+    width: 30vh;
+    height: 6vh;
+    border-radius: 1vh;
+    padding: 10px 25px;
+    background: #4B2138;
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+    color: #FadCd5;
+    border: 2px solid #FadCd5;
+    transition: 0.3s ease;
+    margin-bottom: 2vh;
+    margin-top: 2vh;
+}
+
+button:hover {
+    transition: 0.3s ease;
+    background-color: #2d222f;
+}
+
+label {
+  color: #FadCd5;
+  font-size: 3vh;
+  font-family: JettBrains-regular;
+  position: absolute;
+  pointer-events: none;
+  left: 5px;
+  top: 10px;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+}
+
+input:focus ~ label, input:valid ~ label {
+  top: -20px;
+  font-size: 2vh;
+  color: #FadCd5;
+}
+
+input:focus ~ .bar:before, input:focus ~ .bar:after {
+  width:50%;
+}
+
+input:focus ~ .highlight {
+  -webkit-animation:inputHighlighter 0.3s ease;
+  -moz-animation:inputHighlighter 0.3s ease;
+  animation:inputHighlighter 0.3s ease;
+}
+
+.header button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    cursor: pointer;
+    width: auto;
+}
+
+.header button .icon {
+    margin-left: 1vh;
+    margin-right: 1vh;
+}
+
+.header button .icon i span {
+    font-family: JettBrains-regular;
+    margin-left: 1vh;
+}
+
+.header button span {
+    flex: 1;
+    text-align: center;
+}
+
+.add_password {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.add_button {
+    font-size: 4vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 .header {
     display: flex;
@@ -29,4 +145,101 @@ h1 {
 .card {
     background: #4b2138;
     border-radius: 2vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 3vh;
+}
+
+.card .input-group {
+    margin: 1.5vh;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 45px;
+}
+
+.input-group input {
+    margin-top: 3vh;
+}
+
+.bar {
+    position: relative;
+    display: block;
+    width: auto;
+}
+
+.bar:before, .bar:after {
+    content: "";
+    height: 2px;
+    width: 0;
+    bottom: 1px;
+    position: absolute;
+    background: #fadcd5;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+}
+
+.bar:before {
+    left: 50%;
+}
+
+.bar::after {
+    right: 50%;
+}
+
+.highlight {
+    position: absolute;
+    height: 60%;
+    width: 100px;
+    top: 25%;
+    left: 0;
+    pointer-events: none;
+}
+
+@-webkit-keyframes inputHighlighter {
+	from { 
+    background:#5264AE; 
+  }
+  to 	{ 
+    width:0; background:transparent; 
+  }
+}
+
+@-moz-keyframes inputHighlighter {
+	from { 
+    background:#5264AE; 
+  }
+  to 	{
+    width:0; background:transparent; 
+  }
+}
+
+@keyframes inputHighlighter {
+	from { 
+    background:#5264AE; 
+  }
+  to 	{ 
+    width:0; background:transparent; 
+  }
+}
+
+@media (min-width: 1000px) {
+    .header, .card {
+        width: 80%
+    }
+
+    .header {
+        margin-top: 2vh;
+    }
+
+    body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 }

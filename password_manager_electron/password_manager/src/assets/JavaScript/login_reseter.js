@@ -1,3 +1,4 @@
 document.addEventListener("DOMContentLoaded", (event) => {
-    const token = localStorage.removeItem("isLoggedIn");
+    localStorage.removeItem("isLoggedIn");
+    localStorage.removeItem("currentUser");
 });
