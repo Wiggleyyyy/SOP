@@ -12,24 +12,18 @@ async function Login() {
 
     const apiURL = `https://localhost:7271/Login?username=${username}&password=${password}`;
 
-    const user = {
-        username: username,
-        password: password
-    }
-
     try {
         const response = await fetch(apiURL,{
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
-            },
-            body: JSON.stringify(user)
+            }
         });
 
         if (response.status === 200) {
             console.log("Logged in");
             localStorage.setItem("isLoggedIn", "true");
-            localStorage.setItem("currentUser", user.username);
+            localStorage.setItem("currentUser", username);
             window.location.assign("./home.html")
         } else if (response.status === 404) {
             throw new Error("API not found.");
@@ -62,18 +56,12 @@ async function Signup() {
     if ( password === repeatedPassword) {
         const apiURL = `https://localhost:7271/api/Signup/create_user?username=${username}&password=${password}`;
 
-        const user = {
-            username: username,
-            password: password
-        }
-
         try{
             const response = await fetch(apiURL, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
-                },
-                body: JSON.stringify(user)
+                }
             });
 
             const responseBody = await response.text();
@@ -81,7 +69,7 @@ async function Signup() {
             if (response.status === 200) {
                 console.log("Account created, logging in");
                 localStorage.setItem("isLoggedIn", "true");
-                localStorage.setItem("currentUser", user.username);
+                localStorage.setItem("currentUser", username);
                 window.location.assign("./home.html");
             } else if (response.status == 404) {
                 throw new Error("API not found.");
