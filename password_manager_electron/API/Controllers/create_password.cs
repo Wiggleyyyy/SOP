@@ -24,7 +24,7 @@ namespace API.Controllers
                 site = site,
                 username = username,
                 password = password,
-                hashed_password = HashPassword(password),
+                encrypted_password = EncryptPassword(password, "AES"),
             };
 
             bool insertSuccessful = DB.CreateLogin(login, currentUsername);
@@ -39,13 +39,50 @@ namespace API.Controllers
             }
         }
 
-        private string HashPassword(string password)
+        private static byte[] GetAesKey(string key, int length = 32)
         {
-            using (SHA256 sha256 = SHA256.Create())
+            byte[] keyBytes = Encoding.UTF8.GetBytes(key);
+            if (keyBytes.Length > length)
             {
-                byte[] hashedBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
-                return BitConverter.ToString(hashedBytes).Replace("-", "").ToLower();
+                Array.Resize(ref keyBytes, length); // Truncate if too long
             }
+            else if (keyBytes.Length < length)
+            {
+                Array.Resize(ref keyBytes, length); // Pad with zeros if too short
+            }
+            return keyBytes;
         }
+
+        public static string EncryptPassword(string password, string key)
+        {
+            byte[] iv = new byte[16];
+            byte[] array;
+
+            byte[] keyBytes = GetAesKey(key);
+
+            using (Aes aes = Aes.Create())
+            {
+                aes.Key = keyBytes;
+                aes.IV = iv;
+
+                ICryptoTransform encryptor = aes.CreateEncryptor(aes.Key, aes.IV);
+
+                using (MemoryStream memoryStream = new MemoryStream())
+                {
+                    using (CryptoStream cryptoStream = new CryptoStream((Stream)memoryStream, encryptor, CryptoStreamMode.Write))
+                    {
+                        using (StreamWriter streamWriter = new StreamWriter((Stream)cryptoStream))
+                        {
+                            streamWriter.Write(password);
+                        }
+
+                        array = memoryStream.ToArray();
+                    }
+                }
+            }
+
+            return Convert.ToBase64String(array);
+        }
+
     }
 }

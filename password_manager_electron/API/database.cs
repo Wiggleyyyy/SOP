@@ -1,6 +1,11 @@
 ﻿using API.Controllers;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using System.Data.SqlClient;
+using System.Runtime.Intrinsics.Arm;
+using System;
+using System.IO;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace API
 {
@@ -9,6 +14,49 @@ namespace API
         // Set connection string
         private readonly string connectionString = "Data Source=localhost;Initial Catalog=password_manager;User ID=ConnectionUser;Password=AppConnection!;Integrated Security=True";
         private SqlConnection cnn;
+
+        private static byte[] GetAesKey(string key, int length = 32)
+        {
+            byte[] keyBytes = Encoding.UTF8.GetBytes(key);
+            if (keyBytes.Length > length)
+            {
+                Array.Resize(ref keyBytes, length); // Truncate if too long
+            }
+            else if (keyBytes.Length < length)
+            {
+                Array.Resize(ref keyBytes, length); // Pad with zeros if too short
+            }
+            return keyBytes;
+        }
+
+        public static string DecryptPassword(string cipherText, string key)
+        {
+            byte[] iv = new byte[16];
+            byte[] buffer = Convert.FromBase64String(cipherText);
+
+            byte[] keyBytes = GetAesKey(key);
+
+            using (System.Security.Cryptography.Aes aes = System.Security.Cryptography.Aes.Create())
+            {
+                aes.Key = keyBytes;
+                aes.IV = iv;
+
+                ICryptoTransform decryptor = aes.CreateDecryptor(aes.Key, aes.IV);
+
+                using (MemoryStream memoryStream = new MemoryStream(buffer))
+                {
+                    using (CryptoStream cryptoStream = new CryptoStream((Stream)memoryStream, decryptor, CryptoStreamMode.Read))
+                    {
+                        using (StreamReader streamReader = new StreamReader((Stream)cryptoStream))
+                        {
+                            return streamReader.ReadToEnd();
+                        }
+                    }
+                }
+            }
+        }
+
+
 
         public List<_Login> GetLoginsFromUser(string username)
         {
@@ -47,8 +95,10 @@ namespace API
                             {
                                 site = reader.GetString(reader.GetOrdinal("site")),
                                 username = reader.GetString(reader.GetOrdinal("username")),
-                                hashed_password = reader.GetString(reader.GetOrdinal("password")),
+                                encrypted_password = reader.GetString(reader.GetOrdinal("password")),
                             };
+
+                            login.password = DecryptPassword(login.encrypted_password, "AES");
 
                             if (login != null)
                             {
@@ -120,7 +170,7 @@ namespace API
                     command = new SqlCommand(query, cnn);
                     command.Parameters.AddWithValue("@site", login.site);
                     command.Parameters.AddWithValue("@username", login.username);
-                    command.Parameters.AddWithValue("@password", login.hashed_password);
+                    command.Parameters.AddWithValue("@password", login.encrypted_password);
                     command.Parameters.AddWithValue("@user_id", userID);
                     int rowsAffected = command.ExecuteNonQuery();
 
@@ -138,7 +188,7 @@ namespace API
             }
             catch (Exception ex)
             {
-                
+
 
                 // Close connection if not closed
                 if (cnn.State != System.Data.ConnectionState.Closed)

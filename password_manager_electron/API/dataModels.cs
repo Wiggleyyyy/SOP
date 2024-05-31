@@ -12,6 +12,6 @@
         public string site { get; set; }
         public string username { get; set; }
         public string password { get; set; }
-        public string hashed_password { get; set; }
+        public string encrypted_password { get; set; }
     }
 }
