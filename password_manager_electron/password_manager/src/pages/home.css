@@ -25,6 +25,13 @@ h2 {
     align-items: center;
 }
 
+p {
+    color: #FadCd5;
+    font-family: JettBrains-regular;
+    font-size: 2.5vh;
+    padding: 1vh;
+}
+
 input {
     font-size: 3vh;
     font-family: JettBrains-regular;
@@ -187,7 +194,7 @@ input:focus ~ .highlight {
     left: 50%;
 }
 
-.bar::after {
+.bar:after {
     right: 50%;
 }
 
@@ -198,6 +205,45 @@ input:focus ~ .highlight {
     top: 25%;
     left: 0;
     pointer-events: none;
+}
+
+.masked {
+    -webkit-text-security: disc;
+    margin-left: -1vh;
+}
+
+.masked:hover {
+    -webkit-text-security: none;
+}
+
+.passwords {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.passwords li {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 2vh;
+}
+
+.passwords li:not(:last-child) {
+    border-bottom: 1px solid #FadCd5;
+}
+
+.passwords * {
+    margin: 1vh;
+}
+
+.passwords li button {
+    justify-content: center;
+    align-items: center;
+    display: flex;
 }
 
 @-webkit-keyframes inputHighlighter {

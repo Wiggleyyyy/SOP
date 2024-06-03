@@ -1,3 +1,5 @@
+let counter = 1;
+
 async function CreateLogin() {
     const site = document.getElementById("site").value;
     const username = document.getElementById("username").value;
@@ -14,8 +16,6 @@ async function CreateLogin() {
         const currentUsername = localStorage.getItem("currentUser");
         const apiURL = `https://localhost:7271/password/create_password?site=${site}&username=${username}&password=${password}&currentUsername=${currentUsername}`;
 
-        console.log("url set")
-
         try {
             const response = await fetch(apiURL,{
                 method: "POST",
@@ -26,7 +26,18 @@ async function CreateLogin() {
 
             if (response.status === 200) {
                 console.log("Login created");
-                // Handle creation
+                
+                const passwordList = document.getElementById("passwords");
+                const newListItem = document.createElement("li");
+                const siteId = `li_site${counter}`;
+                const usernameId = `li_username${counter}`;
+                const passwordId = `li_password${counter}`;
+                newListItem.innerHTML = `<p>Site: <span id="${siteId}">${site}</span></p>
+                                         <p>Username: <span class="masked" id="${usernameId}">${username}</span></p>
+                                         <p>Password: <span class="masked" id="${passwordId}">${password}</span></p>
+                                         <button onclick="deleteLogin(this, '${siteId}', '${usernameId}', '${passwordId}')"><i class="fa-solid fa-trash"></i></button>`;
+                                         
+                passwordList.appendChild(newListItem);
             } else if (response.status === 404) {
                 throw new Error("API not found.");
             } else if (response.status === 400) {
@@ -41,3 +52,61 @@ async function CreateLogin() {
         }
     }
 }
+
+async function deleteLogin(button, siteId, usernameId, passwordId) {
+    const listItem = button.parentElement;
+    
+    const site = document.getElementById(siteId).textContent;
+    const username = document.getElementById(usernameId).textContent;
+    const password = document.getElementById(passwordId).textContent;
+
+    console.log(site, username, password)
+
+
+}
+
+window.onload = async function() {
+    //Get passwords
+    const username = localStorage.getItem("currentUser");
+
+    if (username) {
+        const apiURL = `https://localhost:7271/password/get_password?username=${username}`;
+
+        try {
+            const response = await fetch(apiURL, {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            });
+            
+            if (response.status === 200) {
+                const data = await response.json();
+                data.forEach(x => {
+                    const passwordList = document.getElementById("passwords");
+                    const newListItem = document.createElement("li");
+                    const siteId = `li_site${counter}`;
+                    const usernameId = `li_username${counter}`;
+                    const passwordId = `li_password${counter}`;
+                    newListItem.innerHTML = `<p>Site: <span id="${siteId}">${x.site}</span></p>
+                                             <p>Username: <span class="masked" id="${usernameId}">${x.username}</span></p>
+                                             <p>Password: <span class="masked" id="${passwordId}">${x.password}</span></p>
+                                             <button onclick="deleteLogin(this, '${siteId}', '${usernameId}', '${passwordId}')"><i class="fa-solid fa-trash"></i></button>`;
+                                             
+                    passwordList.appendChild(newListItem);
+                })
+
+            } else if (response.status === 404) {
+                throw new Error("API not found.");
+            } else if (response.status === 400) {
+                throw new Error("Bad request.");
+            } else {
+                console.log(`Response : ${response.status}`);
+            }
+        } catch (error) {
+            console.error("Error occured getting log-ins.")
+        }
+    } else {
+        console.error("Can't fetch username.");
+    }
+};

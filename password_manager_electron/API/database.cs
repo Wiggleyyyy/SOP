@@ -56,7 +56,53 @@ namespace API
             }
         }
 
+        public bool DeleteLogin(string username, _Login login)
+        {
+            try
+            {
+                // Open connection
+                cnn = new SqlConnection(connectionString);
+                cnn.Open();
 
+                // Get user_id from username
+                string query = "SELECT * FROM users WHERE email = @username";
+                SqlCommand command = new SqlCommand(query, cnn);
+                command.Parameters.AddWithValue("@username", username);
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    int userID = 0;
+                    while (reader.Read())
+                    {
+                        userID = reader.GetInt32(reader.GetOrdinal("user_id"));
+                    }
+                    reader.Close();
+
+                    // Delete login
+                    query = "DELETE FROM logins WHERE site = @site AND username = @username AND password = @password AND user_id = @user_id";
+                    command = new SqlCommand(query, cnn);
+                    command.Parameters.AddWithValue("@site", login.site);
+                    command.Parameters.AddWithValue("@username", login.username);
+                    command.Parameters.AddWithValue("@password", login.password);
+                    command.Parameters.AddWithValue("@user_id", userID);
+                    int rowsAffected = command.ExecuteNonQuery();
+
+                    cnn.Close();
+
+                    // Return true if rowsAffected > 0
+                    return rowsAffected > 0;
+                }
+                else
+                {
+                    //here
+
+                    return false;
+                }
+            catch
+            {
+
+            }
+        }
 
         public List<_Login> GetLoginsFromUser(string username)
         {
