@@ -27,9 +27,9 @@ namespace API.Controllers
                 encrypted_password = EncryptPassword(password, "AES"),
             };
 
-            bool isDeleted = DB.
+            bool isDeleted = DB.DeleteLogin(user, login);
 
-            if (true)
+            if (isDeleted)
             {
                 return StatusCode(200, "Login deleted");
             }

@@ -4,7 +4,7 @@
 }
 
 body {
-    background: #1b0c1a;
+    background-image: url(../assets/images/mobile2.jpg);
     flex-direction: column;;
     justify-content: center;
     align-items: center;
@@ -84,8 +84,12 @@ label {
   -webkit-transition: 0.2s ease all;
 }
 
+.electron input:focus ~ label, .electron input:valid ~ label {
+  top: -5px;
+}
+
 input:focus ~ label, input:valid ~ label {
-  top: -20px;
+  top: -1.5vh;
   font-size: 2vh;
   color: #FadCd5;
 }
@@ -145,12 +149,12 @@ input:focus ~ .highlight {
     align-items: center;
     box-sizing: border-box;
     border-radius: 2vh;
-    background: #4b2138;
-    padding: 1vh;
+    background: rgba(109, 60, 82, 0.75); 
+    padding: 2vh;
 }
 
 .card {
-    background: #4b2138;
+    background: rgba(109, 60, 82, 0.75);  padding: 2vh;
     border-radius: 2vh;
     display: flex;
     justify-content: center;
@@ -274,6 +278,10 @@ input:focus ~ .highlight {
 }
 
 @media (min-width: 1000px) {
+    .electron input:focus ~ label, .electron input:valid ~ label {
+        top: -20px;
+    }
+
     .header, .card {
         width: 80%
     }
@@ -286,6 +294,7 @@ input:focus ~ .highlight {
         display: flex;
         flex-direction: column;
         justify-content: center;
+        background-image: url(../assets/images/wallpaper2.jpg);
         align-items: center;
     }
 }

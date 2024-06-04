@@ -19,7 +19,7 @@ const createWindow = () => {
 
   // and load the index.html of the app.
   mainWindow.loadFile(path.join(__dirname, 'pages/index.html'));
-  mainWindow.setMenu(null)
+  mainWindow.setMenu(null);
 };
 
 // This method will be called when Electron has finished

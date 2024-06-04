@@ -26,7 +26,7 @@ async function CreateLogin() {
 
             if (response.status === 200) {
                 console.log("Login created");
-                
+
                 const passwordList = document.getElementById("passwords");
                 const newListItem = document.createElement("li");
                 const siteId = `li_site${counter}`;
@@ -38,6 +38,11 @@ async function CreateLogin() {
                                          <button onclick="deleteLogin(this, '${siteId}', '${usernameId}', '${passwordId}')"><i class="fa-solid fa-trash"></i></button>`;
                                          
                 passwordList.appendChild(newListItem);
+                counter++;
+
+                document.getElementById("site").value = "";
+                document.getElementById("username").value = "";
+                document.getElementById("password").value = "";
             } else if (response.status === 404) {
                 throw new Error("API not found.");
             } else if (response.status === 400) {
@@ -56,13 +61,35 @@ async function CreateLogin() {
 async function deleteLogin(button, siteId, usernameId, passwordId) {
     const listItem = button.parentElement;
     
+    const user = localStorage.getItem("currentUser");
+
     const site = document.getElementById(siteId).textContent;
     const username = document.getElementById(usernameId).textContent;
     const password = document.getElementById(passwordId).textContent;
 
-    console.log(site, username, password)
+    const apiURL = `https://localhost:7271/password/delete_password?user=${user}&site=${site}&username=${username}&password=${password}`;
 
+    try {
+        const response = await fetch( apiURL, {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        });
 
+        if (response.status === 200) {
+            console.log("Login deleted")
+            listItem.remove();
+        } else if (response.status === 404) {
+            throw new Error("API not found.")
+        } else if (response.status === 400) {
+            throw new Error("Bad request.")
+        } else {
+            console.log(`Response: ${response.status}`);
+        }
+    } catch (error) {
+
+    }
 }
 
 window.onload = async function() {
@@ -94,6 +121,7 @@ window.onload = async function() {
                                              <button onclick="deleteLogin(this, '${siteId}', '${usernameId}', '${passwordId}')"><i class="fa-solid fa-trash"></i></button>`;
                                              
                     passwordList.appendChild(newListItem);
+                    counter++;
                 })
 
             } else if (response.status === 404) {

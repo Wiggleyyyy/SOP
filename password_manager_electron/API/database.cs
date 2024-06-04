@@ -6,6 +6,8 @@ using System;
 using System.IO;
 using System.Security.Cryptography;
 using System.Text;
+using System.Runtime.Intrinsics.X86;
+using Microsoft.AspNetCore.SignalR.Protocol;
 
 namespace API
 {
@@ -83,10 +85,11 @@ namespace API
                     command = new SqlCommand(query, cnn);
                     command.Parameters.AddWithValue("@site", login.site);
                     command.Parameters.AddWithValue("@username", login.username);
-                    command.Parameters.AddWithValue("@password", login.password);
+                    command.Parameters.AddWithValue("@password", login.encrypted_password);
                     command.Parameters.AddWithValue("@user_id", userID);
                     int rowsAffected = command.ExecuteNonQuery();
 
+                    // Close connection
                     cnn.Close();
 
                     // Return true if rowsAffected > 0
@@ -94,13 +97,24 @@ namespace API
                 }
                 else
                 {
-                    //here
+                    // Close connection if not closed
+                    if (cnn.State != System.Data.ConnectionState.Closed)
+                    {
+                        cnn.Close();
+                    }
 
                     return false;
                 }
-            catch
+            }
+            catch (Exception error)
             {
+                // Close connection if no closed
+                if (cnn.State != System.Data.ConnectionState.Closed)
+                {
+                    cnn.Close();
+                }
 
+                return false;
             }
         }
 
