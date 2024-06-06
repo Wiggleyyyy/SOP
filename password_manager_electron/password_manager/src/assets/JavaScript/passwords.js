@@ -32,10 +32,12 @@ async function CreateLogin() {
                 const siteId = `li_site${counter}`;
                 const usernameId = `li_username${counter}`;
                 const passwordId = `li_password${counter}`;
-                newListItem.innerHTML = `<p>Site: <span id="${siteId}">${site}</span></p>
-                                         <p>Username: <span class="masked" id="${usernameId}">${username}</span></p>
-                                         <p>Password: <span class="masked" id="${passwordId}">${password}</span></p>
-                                         <button onclick="deleteLogin(this, '${siteId}', '${usernameId}', '${passwordId}')"><i class="fa-solid fa-trash"></i></button>`;
+                newListItem.innerHTML = `
+                                        <p>Site: <span id="${siteId}">${site}</span></p>
+                                        <p>Username: <span class="masked" id="${usernameId}">${username}</span></p>
+                                        <p>Password: <span class="masked" id="${passwordId}">${password}</span></p>
+                                        <button onclick="deleteLogin(this, '${siteId}', '${usernameId}', '${passwordId}')"><i class="fa-solid fa-trash"></i></button>`;
+
                                          
                 passwordList.appendChild(newListItem);
                 counter++;

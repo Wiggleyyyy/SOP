@@ -158,8 +158,6 @@ namespace API
                                 encrypted_password = reader.GetString(reader.GetOrdinal("password")),
                             };
 
-                            login.password = DecryptPassword(login.encrypted_password, "AES");
-
                             if (login != null)
                             {
                                 loginsList.Add(login);
