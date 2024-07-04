@@ -3,6 +3,11 @@
     src: url(./assets/fonts/brasika-display-trial.otf);
 }
 
+@font-face {
+    font-family: Roboto-regular;
+    src: url(./assets/fonts/Roboto-Regular.ttf);
+}
+
 @keyframes slide-in-from-left {
     from {
         transform: translateX(-100%);
@@ -55,25 +60,26 @@
 html {
     margin: 0;
     padding: 0;
-    scroll-snap-type: y mandatory;
 }
 
 body {
     margin: 0;
     padding: 0;
-    background-color: #324a39;
+    background-color: #d1ccb8;
+    overflow-x: hidden;
+    width: 100%;
 }
 
-header {
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
+#header {
     height: 100dvh;
+    min-height: 100dvh;
+    max-height: 100dvh;
     background-color: #324a39;   
     z-index: 10;
     width: 100%;
 }
 
-header * {
+#header * {
     margin: 0;
 }
 
@@ -115,14 +121,14 @@ header * {
     z-index: 10;
     box-sizing: border-box;
     border-radius: 1vh;
-    box-shadow: 2px 2px 10px 0 #e26720;
+    box-shadow: 2px 2px 0 0 #e26720;
     animation: slide-in-from-right 2s;
 }
 
 .header-content {
     position: relative;
-    background-color: #e26720;
-    height: 35vh;
+    background-color: #f3a615;
+    height: 30vh;
     width: 80%;
     top: 20%;
     border-top-right-radius: 1vh;
@@ -130,7 +136,8 @@ header * {
     display: flex;
     align-items: center;
     animation: slide-in-from-left 1s;
-    box-shadow: 2px 2px 10px 0 #000;
+    box-shadow: 2px 2px 0 0 #000;
+    padding: 1vh;
 }
 
 .header-content nav ul {
@@ -140,26 +147,28 @@ header * {
 
 .header-content nav ul li::marker {
     font-size: 3vh;
+    color: #d1ccb8;
 }
 
 .header-content nav ul li a {
     font-family: Brasika-Display;
     font-size: 2.5vh;
     text-decoration: none;
-    color: #d1ccb8;
+    color: #231c0d;
     cursor: pointer;
 }
 
 .header-content nav ul .vertical-line {
     width: 3px;
     height: 12.5px;
-    background-color: rgba(0, 0, 0, 0.5);
-    margin-left: -2.2vh;
+    background-color: #d1ccb8;
+    position: relative;
+    left: -13%;
 }
 
-header .scroll {
+#header .scroll {
     position: relative;
-    top: 30%;
+    top: 22.5%;
     width: 100%;
     display: flex;
     align-items: center;
@@ -168,21 +177,477 @@ header .scroll {
     animation: slide-in-from-bottom 2s;
 }
 
-header .scroll h3 {
+#header .scroll h3 {
     font-family: Brasika-Display;
     font-size: 2vh;
     color: #f3a615;
 }
 
-header .scroll i {
+#header .scroll i {
     font-size: 3vh;
     color: #f3a615;
 }
 
 section {
     margin: 0;
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
     height: 100dvh;
+    min-height: 100dvh;
+    max-height: 100dvh;
     background-color: #d1ccb8;
+    transition: 0.3s ease-in-out both;
+}
+
+#intro .content .content-header h1{
+    font-family: Brasika-Display;
+    font-size: 4vh;
+    border: none;
+    position: relative;
+    left: 2%;
+    color: #231c0d;
+}
+
+#intro .content .content-body p {
+    font-family: Roboto-Regular;
+    color: #231c0d;
+    font-size: 2.25vh;
+    position: relative;
+    left: 2%;
+    margin-top: -3vh;
+    margin-right: 1.75vh;
+}
+
+#intro .card-container {
+    width: 100%;
+    height: 50%;
+    position: relative;
+    top: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#intro .card-container .info-card {
+    background-color: #000;
+    height: 90%;
+    width: 70%;
+    padding: 0;
+    box-shadow: 2px 2px 0 0 #f3a615;
+    border-radius: 1vh;
+    position: relative;
+    left: 2%;
+    top: -10%;
+}
+
+#intro .card-container .info-card .info-card-header {
+    background-color: #324a39;
+    padding: 2vh;
+    border-top-left-radius: 1vh;
+    border-top-right-radius: 1vh;
+}
+
+#intro .card-container .info-card .info-card-header h2{
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    font-family: Brasika-Display;
+    color: #f3a615;
+    font-size: 4vh;
+}
+
+#intro .card-container .info-card .info-card-content ul {
+    text-decoration: none;
+    position: absolute;
+    top: 35%;
+}
+
+#intro .card-container .info-card .info-card-content ul li {
+    list-style: none;
+    color: #fff;
+    display: flex;
+    flex-direction: row;
+}
+
+#intro .card-container .info-card .info-card-content ul li i {
+    margin-top: 1.9vh;
+}
+
+#intro .card-container .info-card .info-card-content ul li {
+    font-family: Roboto-Regular;
+    font-size: 2vh;
+}
+
+#intro .card-container .info-card .info-card-content ul li * {
+    margin-right: 1vh;
+    margin-left: 1vh;
+}
+
+#intro .birth-date {
+    position: relative;
+    z-index: 10;
+    background-color: #f3a615;
+    width: 22.5vh;
+    padding: 0.75vh;
+    border-radius: 5vh;
+    top: 37.5%;
+    left: -20%;
+    box-shadow: 2px 2px 0 0 #e26720;
+}
+
+#intro .birth-date p {
+    letter-spacing: 0.25vh;
+    font-family: Roboto-Regular;
+    font-size: 1.75vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#intro .nationality {
+    position: relative;
+    z-index: 10;
+    background-color: #f3a615;
+    width: 15vh;
+    padding: 0.75vh;
+    border-radius: 5vh;
+    left: 60%;
+    top: 110%;
+    box-shadow: 2px 2px 0 0 #e26720;
+}
+
+#intro .nationality p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Roboto-Regular;
+    font-size: 2vh;
+    letter-spacing: 0.25vh;
+}
+
+#intro nav {
+    border-radius: 5vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    top: 30%;
+}
+
+#intro nav a {
+    background-color: #e26720;
+    width: 64%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5vh;
+    padding: 1vh;
+    text-decoration: none;
+    font-family: Brasika-Display;
+    color: #fff;
+    box-shadow: 2px 2px 0 0 #000;
+}
+
+#experience-section {
+    background-color: #324a39;
+}
+
+#experience-section .education {
+    position: relative;
+    top: -8%;
+    left: 2%;
+    z-index: 11;
+}
+
+#experience-section .education .education-header {
+    font-family: Brasika-Display;
+    color: #f3a615;
+    font-size: 3.25vh;
+}
+
+#experience-section .education .education-content {
+    position: absolute;
+    left: -6%;
+    top: 90%;
+}
+
+#experience-section .education .education-content ul li {
+    margin: 2vh;
+}
+
+#experience-section .education .education-content ul li::marker {
+    font-size: 4vh;
+    color: #e26720;
+}
+
+#experience-section .education .education-content ul li .education-item {
+    display: flex;
+    flex-direction: column;
+}
+
+#experience-section .education .education-content ul li .education-item h2 {
+    font-size: 2.5vh;
+    margin: 0;
+    font-family: Brasika-Display;
+    color: #d1ccb8;
+}
+
+#experience-section .education .education-content ul li .education-item .education-item-content {
+    display: flex;
+    flex-direction: column;
+}
+
+#experience-section .education .education-content ul li .education-item .education-item-content h3 {
+    font-family: Roboto-Regular;
+    color: #d1ccb8;
+    margin: 0;
+}
+
+#experience-section .education .education-content ul li .education-item .education-item-content p {
+    font-family: Roboto-Regular;
+    color: #d1ccb8;
+    margin: 0;
+}
+
+#experience-section .education .education-content ul .vertical-line {
+    background-color: #d1ccb8;
+    height: 10vh;
+    width: 0.25vh;
+    position: absolute;
+    top: 23.5%;
+    left: 8.3%;
+}
+
+#experience-section .experience {
+    position: relative;
+    top: 60%;
+    background-color: #f3a615;
+    padding: 1vh;
+    width: 85%;
+    box-shadow: 2px 2px 0 0 #231c0d;
+    border-top-right-radius: 2vh;
+    border-bottom-right-radius: 2vh;
+    z-index: 20;
+}
+
+#experience-section .experience .experience-header h1 {
+    color: #231c0d;
+    font-family: Brasika-Display;
+    position: relative;
+    left: 2%;
+    font-size: 4vh;
+    margin: 0;
+}
+
+#experience-section .experience .experience-content {
+    position: relative;
+    left: -5%;
+    
+}
+
+#experience-section .experience .experience-content ul .vertical-line {
+    background-color: #d1ccb8;
+    height: 9vh;
+    width: 0.3vh;
+    position: absolute;
+    top: 17.75%;
+    left: 9.7%;
+}
+
+#experience-section .experience .experience-content ul li  {
+    margin: 2vh;
+}
+
+#experience-section .experience .experience-content ul li::marker {
+    font-size: 4vh;
+    color: #d1ccb8;
+}
+
+#experience-section .experience .experience-content ul li .experience-item {
+    display: flex;
+    flex-direction: column;
+}
+
+#experience-section .experience .experience-content ul li .experience-item h2 {
+    font-family: Brasika-Display;
+    margin: 0;
+    color: #231c0d;
+}
+
+#experience-section .experience .experience-content ul li .experience-item .experience-item-content h3 {
+    margin: 0;
+    font-family: Roboto-Regular;
+    color: #231c0d;
+}
+
+#experience-section .experience .experience-content ul li .experience-item .experience-item-content p {
+    margin: 0;
+    font-family: Roboto-Regular;
+    color: #231c0d;
+}
+
+#experience-section .experience .experience-subjects {
+    display: flex;
+    flex-direction: column;
+}
+
+#experience-section .experience .experience-subjects .experience-subjects-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+}
+
+#experience-section .experience .experience-subjects .experience-subjects-row label {
+    background-color: #231c0d;
+    padding: 1vh;
+    border-radius: 14vh;
+    color: #d1ccb8;
+    font-family: Roboto-Regular;
+    margin: 0.5vh;
+}
+
+
+#experience-section .experience-section-header {
+    position: relative;   
+    left: 10%;
+}
+
+#experience-section .experience-section-header h1 {
+    color: transparent;
+    font-family: Brasika-Display;
+    font-size: 6.75vh;
+    -webkit-text-stroke: 0.1vh #e26720;
+    margin: -3vh;
+    letter-spacing: 0.25vh;
+}
+
+#skills {
+    min-height: 162.5dvh;
+    max-height: 800dvh;
+    height: 120%;
+}
+
+#skills .skills {
+    position: relative;
+    top: 6.5%;
+}
+
+
+#skills .skills .skills-header h1 {
+    position: relative;
+    font-family: Brasika-Display;
+    font-size: 4vh;
+    color: #231c0d;
+    letter-spacing: 0.1vh;
+    left: 2%;
+}
+
+#skills .skills .skills-body .skills-item .skills-item-header {
+    position: relative;
+    left: 2%;
+}
+
+#skills .skills .skills-body .skills-item .skills-item-header h1 {
+    font-family: Brasika-Display;
+    font-size: 3vh;
+    color: #231c0d;
+}
+
+#skills .skills .skills-body .skills-item .skills-item-content ul li {
+
+}
+
+#skills .skills .skills-body .skills-item .skills-item-content ul li::marker {
+    font-size: 4vh;
+    color: #e26720;
+}
+
+#skills .skills .skills-body .skills-item .skills-item-content ul li p {
+    font-size: 2.75vh;
+    font-family: Roboto-Regular;
+}
+
+
+#skills .skills .skills-body .skills-item .skills-item-content ul li p span {
+    font-weight: bold;
+}
+
+#skills .icons i {
+    font-size: 7vh;
+    color: #231c0d;
+    background-color: #f3a615;
+    padding: 1vh;
+    border-radius: 1vh;
+    box-shadow: 2px 2px 0 0 #231c0d;
+}
+
+#skills .icons .icon-1 {
+    position: absolute;
+    left: 60%;
+    top: 2.5%;
+}
+
+#skills .icons .icon-2 {
+    position: absolute;
+    top: 37.5%;
+    left: 70%;
+}
+
+#skills .icons .icon-3 {
+    position: absolute;
+    top: 75%;
+    left: 65%;
+}
+
+#skills .skills .skills-body .skills-subjects {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+#skills .skills .skills-body .skills-subjects .skills-subjects-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+}
+
+#skills .skills .skills-body .skills-subjects .skills-subjects-row label {
+    background-color: #f3a615;
+    color: #231c0d;
+    padding: 1vh;
+    margin: 0.5vh;
+    border-radius: 2vh;
+    font-family: Roboto-Regular;
+    font-size: 2vh;
+}
+
+#contact {
+    background-color: #324a39;
+    
+}
+
+#end {
+    min-height: 25dvh;
+    max-height: 25dvh;
+    height: 25dvh;
+    overflow: hidden;
+}
+
+#end h1 {
+    font-family: Brasika-Display;
+    color: transparent;
+    -webkit-text-stroke: 0.1vh #231c0d;
+    letter-spacing: 0.1vh;
+    font-size: 10vh;
+    margin-top: -2vh;
+    padding: 0;
+}
+
+#end h1:nth-of-type(2) {
+    margin-top: -15.5vh;
+}
+
+#end h1:nth-of-type(3) {
+    margin-top: -15.5vh;
 }
