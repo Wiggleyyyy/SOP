@@ -204,6 +204,7 @@ section {
     position: relative;
     left: 2%;
     color: #231c0d;
+    width: fit-content;
 }
 
 #intro .content .content-body p {
@@ -213,7 +214,7 @@ section {
     position: relative;
     left: 2%;
     margin-top: -3vh;
-    margin-right: 1.75vh;
+    width: 90%;
 }
 
 #intro .card-container {
@@ -356,6 +357,7 @@ section {
     top: -8%;
     left: 2%;
     z-index: 11;
+    width: fit-content;
 }
 
 #experience-section .education .education-header {
@@ -510,6 +512,7 @@ section {
 #experience-section .experience-section-header {
     position: relative;   
     left: 10%;
+    width: fit-content;
 }
 
 #experience-section .experience-section-header h1 {
@@ -519,6 +522,7 @@ section {
     -webkit-text-stroke: 0.1vh #e26720;
     margin: -3vh;
     letter-spacing: 0.25vh;
+    width: fit-content;
 }
 
 #skills {
@@ -540,11 +544,13 @@ section {
     color: #231c0d;
     letter-spacing: 0.1vh;
     left: 2%;
+    width: fit-content;
 }
 
 #skills .skills .skills-body .skills-item .skills-item-header {
     position: relative;
     left: 2%;
+    width: fit-content;
 }
 
 #skills .skills .skills-body .skills-item .skills-item-header h1 {
@@ -553,9 +559,7 @@ section {
     color: #231c0d;
 }
 
-#skills .skills .skills-body .skills-item .skills-item-content ul li {
 
-}
 
 #skills .skills .skills-body .skills-item .skills-item-content ul li::marker {
     font-size: 4vh;
@@ -565,6 +569,7 @@ section {
 #skills .skills .skills-body .skills-item .skills-item-content ul li p {
     font-size: 2.75vh;
     font-family: Roboto-Regular;
+    color: #231c0d;
 }
 
 
@@ -624,7 +629,74 @@ section {
 
 #contact {
     background-color: #324a39;
-    
+    padding-top: 7.5vh;
+}
+
+#contact .form-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+#contact .mail-form {
+    background-color: #f3a615;
+    padding: 1.5vh;
+    border-radius: 1.14vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#contact .mail-form h1 {
+    font-family: Brasika-Display;
+}
+
+#contact .mail-form .input-group {
+    display: flex;
+    flex-direction: column;
+    margin: 1vh;
+}
+
+#contact .mail-form .input-group label {
+    font-size: 2.5vh;
+    font-family: Roboto-Regular;
+}
+
+#contact .mail-form .input-group input {
+    font-size: 3vh;
+    width: 92%;
+}
+
+#contact .mail-form .input-group #message-label {
+    margin-left: -3vh;
+}
+
+#contact .mail-form .input-group textarea {
+    font-size: 3vh;
+    width: 110%;
+    margin-left: -3vh;
+}
+
+#contact .mail-form button {
+    font-size: 2.5vh;
+    background-color: #f3a615;
+    font-family: Roboto-Regular;
+    border: 2px solid #231c0d;
+    border-radius: 1.14vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70%;
+    transition: ease-in-out both 0.3s;
+    cursor: pointer;
+}
+
+#contact .mail-form button:hover {
+    background-color: #231c0d;
+    color: #f3a615;
 }
 
 #end {

@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="./assets/JavaScript/link_scroll.js"></script>
+    <script src="./assets/JavaScript/send_mail.js"></script>
 </head>
 <body>
     <main>
@@ -52,7 +53,7 @@
                 <div class="content-body">
                     <p>
                         I am an aspiring software developer based in Denmark. <br>
-                        I'm currently studying as a datatechnician with a specialty in programming.
+                        I'm currently studying as a datatechnician <br> with a specialty in programming.
                     </p>
                 </div>
             </div>
@@ -230,7 +231,26 @@
             </div>
         </section>
         <section id="contact">
-            
+            <div class="contact">
+                <div class="form-container">
+                    <div class="mail-form">
+                        <h1>Davi5145@edu.sde.dk</h1>
+                        <div class="input-group">
+                            <label for="">Name</label>
+                            <input type="text" id="mail-name" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="">Email</label>
+                            <input type="text" id="mail-email" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="" id="message-label">Message</label>
+                            <textarea name="" id="mail-message" required></textarea>
+                        </div>
+                        <button onclick="sendMail()">SEND</button>
+                    </div>
+                </div>
+            </div>
         </section>
         <section id="end">
             <h1>End</h1>
@@ -239,6 +259,7 @@
         </section>
     </main>
 
+    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <script src="./assets/JavaScript/link_scroll.js"></script>
 </body>
 </html>
