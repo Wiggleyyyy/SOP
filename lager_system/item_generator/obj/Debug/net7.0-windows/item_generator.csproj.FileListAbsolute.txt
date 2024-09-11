@@ -1,0 +1,16 @@
+C:\Users\houge\Documents\GitHub\SOP\lager_system\item_generator\bin\Debug\net7.0-windows\item_generator.exe
+C:\Users\houge\Documents\GitHub\SOP\lager_system\item_generator\bin\Debug\net7.0-windows\item_generator.deps.json
+C:\Users\houge\Documents\GitHub\SOP\lager_system\item_generator\bin\Debug\net7.0-windows\item_generator.runtimeconfig.json
+C:\Users\houge\Documents\GitHub\SOP\lager_system\item_generator\bin\Debug\net7.0-windows\item_generator.dll
+C:\Users\houge\Documents\GitHub\SOP\lager_system\item_generator\bin\Debug\net7.0-windows\item_generator.pdb
+C:\Users\houge\Documents\GitHub\SOP\lager_system\item_generator\obj\Debug\net7.0-windows\item_generator.form1.resources
+C:\Users\houge\Documents\GitHub\SOP\lager_system\item_generator\obj\Debug\net7.0-windows\item_generator.csproj.GenerateResource.cache
+C:\Users\houge\Documents\GitHub\SOP\lager_system\item_generator\obj\Debug\net7.0-windows\item_generator.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\houge\Documents\GitHub\SOP\lager_system\item_generator\obj\Debug\net7.0-windows\item_generator.AssemblyInfoInputs.cache
+C:\Users\houge\Documents\GitHub\SOP\lager_system\item_generator\obj\Debug\net7.0-windows\item_generator.AssemblyInfo.cs
+C:\Users\houge\Documents\GitHub\SOP\lager_system\item_generator\obj\Debug\net7.0-windows\item_generator.csproj.CoreCompileInputs.cache
+C:\Users\houge\Documents\GitHub\SOP\lager_system\item_generator\obj\Debug\net7.0-windows\item_generator.dll
+C:\Users\houge\Documents\GitHub\SOP\lager_system\item_generator\obj\Debug\net7.0-windows\refint\item_generator.dll
+C:\Users\houge\Documents\GitHub\SOP\lager_system\item_generator\obj\Debug\net7.0-windows\item_generator.pdb
+C:\Users\houge\Documents\GitHub\SOP\lager_system\item_generator\obj\Debug\net7.0-windows\item_generator.genruntimeconfig.cache
+C:\Users\houge\Documents\GitHub\SOP\lager_system\item_generator\obj\Debug\net7.0-windows\ref\item_generator.dll
