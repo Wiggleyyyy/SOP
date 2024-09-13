@@ -271,7 +271,7 @@ export default function Home() {
   return (
     <main className="flex flex-row">
       <div className="h-screen w-[30vh] bg-muted flex flex-col items-center p-5">
-        <Label className="text-2xl">Lager</Label>
+        <Label className="text-2xl">Items</Label>
         <Separator className="mt-5 h-1 bg-accent-foreground rounded" />
         <div className="flex flex-col items-center">
           <Link href="">
