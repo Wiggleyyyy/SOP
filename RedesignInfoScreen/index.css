@@ -324,8 +324,7 @@ main {
     font-size: 4vh;
     white-space: nowrap; /* Prevent text from wrapping */
     position: absolute;
-    animation: slide 10s linear infinite; /* Apply the animation */
-    width: 75vw; /* Reduce the width to stop before the image */
+    animation: slide 0s linear infinite; /* Adjusted the animation duration */
     font-family: var(--font-familiy);
 }
 
@@ -334,6 +333,10 @@ main {
         transform: translateX(100%); /* Start offscreen on the right */
     }
     100% {
-        transform: translateX(0); /* Stop before reaching the image */
+        transform: translateX(0%); /* Move completely out of the viewport */
     }
+}
+
+iframe {
+    display: none;
 }
